@@ -9,12 +9,14 @@ namespace GestaoLivros.Data
 {
     public class LivroContext : DbContext
     {
-        public DbSet<Livro>? Livros { get; set; }
+        
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        public LivroContext(DbContextOptions options):base(options)
         {
-            optionsBuilder.UseSqlServer(@"Password=samsys123;Persist Security Info=True;User ID=samsys;Initial Catalog=GestaoLivros_db;Data Source=DESKTOP-IBTQDC0\SQLEXPRESS");
+           
         }
+
+        public DbSet<Livro>? Livros { get; set; }
     }
 }
 
